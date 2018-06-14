@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/static/style.css" rel="stylesheet">
+        <meta content="initial-scale=1,width=device-width" name="viewport">
+        <script defer src="/static/script.js"></script>
+        <script defer src="https://maps.googleapis.com/maps/api/js?callback=init&key={{google_maps_api_key}}"></script>
+        <title>FindMe</title>
+    </head>
+    <body>
+        <p>Last Updated: <span id="lastUpdated">{{last_updated}}</span></p>
+        <div id="map" style="height: 100%;"></div>
+    </body>
+</html>
