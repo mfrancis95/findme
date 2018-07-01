@@ -31,7 +31,7 @@ function data() {
                 reject();
             }
         });
-        xhr.open("GET", "/data");
+        xhr.open("GET", "/location");
         xhr.send();
     });
 }
