@@ -1,13 +1,13 @@
 from os.path import dirname, isfile, join
 from json import dump, load
-from datetime import datetime
+from datetime import datetime, timezone
 
 _file = join(dirname(__file__), 'location.json')
 
 if not isfile(_file):
     with open(_file, 'w') as fp:
         data = {
-            'last_updated': str(datetime.now()),
+            'last_updated': datetime.now(timezone.utc).isoformat(),
             'position': {
                 'lat': 50,
                 'lng': 50
@@ -19,7 +19,7 @@ def update_location(json):
     if _validate(json):
         with open(_file, 'w') as fp:
             data = {
-                'last_updated': str(datetime.now()),
+                'last_updated': datetime.now(timezone.utc).isoformat(),
                 'position': {
                     'lat': json['lat'],
                     'lng': json['lng']

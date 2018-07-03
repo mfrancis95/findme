@@ -4,7 +4,7 @@ var request = data();
 
 function init() {
     request.then(function(json) {
-        document.getElementById("lastUpdated").innerHTML = json.last_updated;
+        document.getElementById("lastUpdated").innerHTML = new Date(json.last_updated).toLocaleString();
         map = new google.maps.Map(document.getElementById("map"), {
             center: json.position,
             zoom: 16
@@ -37,7 +37,7 @@ function data() {
 }
 
 function update(json) {
-    document.getElementById("lastUpdated").innerHTML = json.last_updated;
+    document.getElementById("lastUpdated").innerHTML = new Date(json.last_updated).toLocaleString();
     marker.setPosition(new google.maps.LatLng(json.position.lat, json.position.lng));
     map.setCenter(marker.getPosition());
 }
